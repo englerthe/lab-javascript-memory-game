@@ -25,7 +25,8 @@ const cards = [
   { name: 'thor',            img: 'thor.jpg' }
 ];
 
-const memoryGame = new MemoryGame(cards);
+let memoryGame = new MemoryGame(cards);
+memoryGame.shuffleCards();
 
 document.addEventListener("DOMContentLoaded", function(event) { 
   let html = '';
@@ -43,9 +44,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.querySelectorAll('.back').forEach( card => {
     card.onclick = function() {
       // TODO: write some code here
-      console.log('Card clicked: ', card);
+      memoryGame.cardClicked(card);
+ 
+        // memoryGame.checkIfPair (card[1]; card[2])
     };
   });
-});
+})
 
+// card.childNodes.forEach( node => {
+//  node.classList.toggle("back")
+// });
 
